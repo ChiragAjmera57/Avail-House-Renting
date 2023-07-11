@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer, useState } from "react";
 import {  Center, Button,Stack ,Input, TableContainer, Table, Thead, Tr, Th, Tbody, Td, Spinner, CloseButton} from '@chakra-ui/react'
 import { initialState } from "./initialState";
+import { Text } from "@chakra-ui/react"
 import { reducer } from "./reducer";
 import axios from "axios";
 export default function Dashboard() {
@@ -9,8 +10,6 @@ export default function Dashboard() {
 const [userdata,dispatch] = useReducer(reducer,initialState);
 const[sortby,setsortby] = useState("");
 const[query,setquery] = useState("");
-const[button1,setbutton1] = useState(true)
-const[button2,setbutton2] = useState(false)
 
 const handlechange = (e)=>{
 setquery(e.target.value);
@@ -44,12 +43,12 @@ useEffect(()=>{
 		<div>
 			<Stack spacing={5}>
 				<div className="sortingButtons">
-				<Button mx={1} onClick={()=>{setsortby("asc"); setbutton2(!button2);setbutton1(!button1)} } colorScheme={button1?"red":"gray"} className="sortByRentAsc">Sort by Asc</Button>
-					<Button onClick={()=>{setsortby("desc"); setbutton1(!button1);setbutton2(!button2)}} colorScheme={button2?"red":"gray"} className="sortByRentDesc" >
+				<Button   mx={1}  onClick={()=>{setsortby("asc")} }   className="sortByRentAsc">Sort by Asc</Button>
+					<Button onClick={()=>{setsortby("desc")}}  className="sortByRentDesc" >
 						Sort by Desc
 					</Button>
 				</div>
-
+			
 				<Center>
 					<Input
 					value={query}
