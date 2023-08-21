@@ -19,7 +19,7 @@ setquery(e.target.value);
 	axios.get(`https://json-server-cqxs.onrender.com/houses`,{
 		params:{
 			q:query,
-			_sort:"rent",
+			_sort:rent,
 			_order:sortby
 
 		}
