@@ -48,7 +48,7 @@ export default function Form() {
 	const handlerent =(e) =>{
 		setdata({
 			...submittedData,
-			rent:e.target.value
+			rent: + e.target.value
 		}
 		)
 	}
